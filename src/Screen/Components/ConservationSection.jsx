@@ -4,21 +4,16 @@ import lionImage from "../../assets/Rectangle 461.png";
 
 function ConservationSection() {
   return (
-    <section
-      className="bg-[#ece1cf] py-20 text-[#4b4539]"
-      style={{ fontFamily: "'FK Roman Standard Trial', serif" }}
-    >
+    <section className="bg-[#ece1cf] py-20 text-[#4b4539]">
       <div className="mx-auto max-w-6xl px-6">
         {/* Text Content */}
         <div className="space-y-6 lg:w-2/3">
-          <h2 className="font-semibold uppercase tracking-[0.25em] text-[#4A4A4A]">
-            Our Impact
-          </h2>
-          <h2 className="text-3xl leading-tight text-[#6C6969] md:text-4xl lg:text-5xl">
-            We Put In Some{" "}
-            <span className="italic text-[#56575C]">Conservation</span> Place
-            Holder Text To Show You How A Filled Out Page Might Look In This
-            Space
+          <h2 className="our-impact-label text-[#4A4A4A]">Our Impact</h2>
+
+          <h2 className="our-impact-heading">
+            We Put In Some <span className="italic-word">Conservation</span>{" "}
+            Place Holder Text To Show You How A Filled Out Page Might Look In
+            This Space
           </h2>
         </div>
 

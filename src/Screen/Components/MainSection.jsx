@@ -67,7 +67,7 @@ function MainSection() {
             </div>
 
             {/* Book Now Button */}
-            <button className="border-t border-b border-white px-4 py-2 text-xs font-semibold uppercase tracking-wide transition cursor-pointer">
+            <button className="btn-book-now-text border-t border-b border-white px-4 py-2 uppercase transition cursor-pointer">
               Book Now
             </button>
           </>
@@ -87,14 +87,14 @@ function MainSection() {
         <div className="fixed inset-0 z-30 flex bg-black/60 backdrop-blur-sm">
           <div className="flex-1" onClick={closeMenu} />
 
-          <div className="relative h-full w-full max-w-2xl bg-[#52535b]/95 px-8 py-10 text-gray-200 shadow-2xl md:px-12 md:py-14">
+          <div className="relative h-full w-full max-w-2xl overflow-y-auto bg-[#52535b]/95 px-8 py-10 text-gray-200 shadow-2xl md:px-12 md:py-14">
             <div className="mb-8 flex items-center justify-between">
               <img
                 src={logoImage}
                 alt="Hemingways logo"
                 className="h-5.3 w-3.76"
               />
-              <button className="border-t border-b border-white/70 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-white/10">
+              <button className="btn-book-now-text border-t border-b border-white/70 px-4 py-2 text-white transition hover:bg-white/10">
                 Book Now
               </button>
             </div>
@@ -108,7 +108,7 @@ function MainSection() {
                         <span className="text-2xl text-white">•</span>
                       )}
                       <h3
-                        className={`text-2xl font-semibold ${
+                        className={`our-collection-heading ${
                           index === highlightIndex
                             ? "text-white"
                             : "text-white/70"
@@ -123,43 +123,53 @@ function MainSection() {
 
               <div className="hidden space-y-6 text-base text-white/80 md:block">
                 <div>
-                  <h4 className="text-lg font-semibold text-white">Nairobi</h4>
-                  <p className="text-white/70">Capital of Kenya</p>
+                  <h4 className="menu-location-title text-white">Nairobi</h4>
+                  <p className="menu-location-subtitle text-white/70">
+                    Capital of Kenya
+                  </p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white">
+                  <h4 className="menu-location-title text-white">
                     Ol Seki Mara
                   </h4>
-                  <p className="text-white/70">Maasai Mara Reserve</p>
+                  <p className="menu-location-subtitle text-white/70">
+                    Maasai Mara Reserve
+                  </p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white">Watamu</h4>
-                  <p className="text-white/70">
+                  <h4 className="menu-location-title text-white">Watamu</h4>
+                  <p className="menu-location-subtitle text-white/70">
                     Kenyan Coast, North of Mombasa
                   </p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white">
+                  <h4 className="menu-location-title text-white">
                     Eden Residences
                   </h4>
-                  <p className="text-white/70">Nairobi National Park</p>
+                  <p className="menu-location-subtitle text-white/70">
+                    Nairobi National Park
+                  </p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white">
+                  <h4 className="menu-location-title text-white">
                     Richard&apos;s Camp
                   </h4>
-                  <p className="text-white/70">Maasai Mara Reserve</p>
+                  <p className="menu-location-subtitle text-white/70">
+                    Maasai Mara Reserve
+                  </p>
                 </div>
                 <div>
-                  <h4 className="text-lg font-semibold text-white">
+                  <h4 className="menu-location-title text-white">
                     The Retreat
                   </h4>
-                  <p className="text-white/70">Kigali, Rwanda</p>
+                  <p className="menu-location-subtitle text-white/70">
+                    Kigali, Rwanda
+                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-10 flex flex-col items-start gap-3 text-lg uppercase tracking-[0.25em] text-white md:flex-row md:flex-wrap md:text-xs">
+            <div className="mt-10 flex flex-col items-start gap-3 uppercase tracking-[0.25em] text-white md:flex-row md:flex-wrap">
               {[
                 "About Us",
                 "FAQ",
@@ -171,7 +181,7 @@ function MainSection() {
               ].map((link) => (
                 <button
                   key={link}
-                  className="transition hover:text-white"
+                  className="menu-footer-link transition hover:text-white"
                   onClick={closeMenu}
                 >
                   {link}
