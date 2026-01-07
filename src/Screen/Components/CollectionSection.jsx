@@ -1,4 +1,4 @@
-import { memo, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -37,13 +37,36 @@ const slides = [
 function CollectionSection() {
   const [current, setCurrent] = useState(0);
   const swiperRef = useRef(null);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const sectionEl = sectionRef.current;
+    if (!sectionEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(sectionEl);
+
+    return () => observer.disconnect();
+  }, []);
 
   const currentSlide = slides[current];
   const prevSlide = slides[(current - 1 + slides.length) % slides.length];
   const nextSlide = slides[(current + 1) % slides.length];
 
   return (
-    <section className="bg-[#efe2cc] py-20 text-center text-slate-800 overflow-x-hidden">
+    <section
+      ref={sectionRef}
+      className="fade-in-section bg-[#efe2cc] py-20 text-center text-slate-800 overflow-x-hidden"
+    >
       <div className="mx-auto flex min-h-screen max-w-5xl flex-col items-center px-4">
         <div className="mb-4 flex items-center justify-center">
           <img

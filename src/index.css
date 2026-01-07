@@ -6,6 +6,22 @@
     "Segoe UI", sans-serif;
 }
 
+body {
+  background-color: #e8dccb;
+}
+
+/* Generic fade-in animation for sections */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* 1. "Our Collection" (menu heading) */
 .our-collection-heading {
   font-family: var(--font-fk-roman);

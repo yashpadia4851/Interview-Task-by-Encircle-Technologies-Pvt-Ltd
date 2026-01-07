@@ -1,4 +1,4 @@
-import { memo, useCallback, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import heroImage from "../../assets/Rectangle 12.jpg";
 import logoImage from "../../assets/Logo.png";
 
@@ -15,13 +15,36 @@ const navSections = [
 
 function MainSection() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const sectionRef = useRef(null);
 
   const highlightIndex = useMemo(() => 0, []);
   const openMenu = useCallback(() => setIsMenuOpen(true), []);
   const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
+  useEffect(() => {
+    const sectionEl = sectionRef.current;
+    if (!sectionEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(sectionEl);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative min-h-screen overflow-hidden text-white">
+    <section
+      ref={sectionRef}
+      className="fade-in-section relative min-h-screen overflow-hidden text-white"
+    >
       <div className="absolute inset-0">
         <img
           src={heroImage}

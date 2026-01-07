@@ -1,10 +1,34 @@
-import { memo } from "react";
+import { memo, useEffect, useRef } from "react";
 import giraffeImage from "../../assets/Rectangle 460.png";
 import lionImage from "../../assets/Rectangle 461.png";
 
 function ConservationSection() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const sectionEl = sectionRef.current;
+    if (!sectionEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(sectionEl);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="bg-[#ece1cf] py-20 text-[#4b4539]">
+    <section
+      ref={sectionRef}
+      className="fade-in-section bg-[#ece1cf] py-20 text-[#4b4539]"
+    >
       <div className="mx-auto max-w-6xl px-6">
         {/* Text Content */}
         <div className="space-y-6 lg:w-2/3">
