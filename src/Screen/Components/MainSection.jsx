@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import heroImage from "../../assets/Rectangle 12.jpg";
 import logoImage from "../../assets/Logo.png";
+import playIcon from "../../assets/Icon.png";
 
 const navSections = [
   {
@@ -98,9 +99,13 @@ function MainSection() {
       </header>
 
       <div className="relative z-10 flex h-[calc(100vh-80px)] items-end justify-center px-6 pb-10 md:px-12 md:pb-14">
-        <button className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-white/80 transition hover:text-white">
-          <span className="h-10 w-10 rounded-full border border-white/50 bg-white/10 text-center leading-10">
-            ▶
+        <button className="flex items-center text-sm font-semibold uppercase tracking-wide text-white/80 transition hover:text-white">
+          <span className="flex h-12 w-12 items-center justify-center">
+            <img
+              src={playIcon}
+              alt="Play video"
+              className="h-6 w-6 object-contain"
+            />
           </span>
           Watch Full Video
         </button>
